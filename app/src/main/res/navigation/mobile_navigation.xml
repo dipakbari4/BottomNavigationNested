@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.dipak.bottomnavigationnested.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.dipak.bottomnavigationnested.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_subFragment1"
+            app:destination="@id/subFragment1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.dipak.bottomnavigationnested.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/subFragment1"
+        android:name="com.dipak.bottomnavigationnested.ui.SubFragment1"
+        android:label="fragment_sub1"
+        tools:layout="@layout/fragment_sub1" >
+        <action
+            android:id="@+id/action_subFragment1_to_subFragmentPart1"
+            app:destination="@id/subFragmentPart1" />
+    </fragment>
+    <fragment
+        android:id="@+id/subFragmentPart1"
+        android:name="com.dipak.bottomnavigationnested.ui.SubFragmentPart1"
+        android:label="fragment_sub_part1"
+        tools:layout="@layout/fragment_sub_part1" >
+        <action
+            android:id="@+id/action_subFragmentPart1_to_subFragment1"
+            app:destination="@id/subFragment1" />
+    </fragment>
+</navigation>
